@@ -1,0 +1,36 @@
+form.hide{
+    display: none;
+}
+form .hide{
+    display: none;
+}
+
+#scoreGrid{
+    width: 90vw;
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(var(--plyr-number), 1fr);
+    grid-template-rows: repeat(7, 1.5fr);
+    gap: 10px;
+}
+
+#scoreGrid.hide{
+    display: none;
+}
+
+#scoreGrid div, #scoreGrid input{
+    border: 3px solid peru;
+    /* width: 100%; */
+    min-width: 75px;
+    word-wrap: normal;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#next-round{
+    grid-column: 1/4;
+}
+
+/* better font */
