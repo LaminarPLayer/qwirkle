@@ -30,7 +30,7 @@ form .hide{
 }
 
 #next-round{
-    grid-column: 1/4;
+    grid-column: 1 / calc((var(--plyr-number)) + 1);
 }
 
 /* better font */

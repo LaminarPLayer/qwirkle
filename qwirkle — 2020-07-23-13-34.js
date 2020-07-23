@@ -9,17 +9,13 @@ let startBtn = document.querySelector("#start-btn");
 let form = document.querySelector("form");
 
 let scoreGrid = document.querySelector("#scoreGrid");
-let gameOver = null;
-let turn = null;
+let gameOver = false;
 
 updateForm();
 players.addEventListener("change", updateForm);
 startBtn.addEventListener("click", function(){
     initGame();
-    gameOver = false;
 });
-
-
 
 function updateForm(){
     for(let i = 0; i < 4; i++){
@@ -49,51 +45,46 @@ function initGame(){
     for(let i = 0; i < players.value; i++){
         scoreGrid.innerHTML += "<div id=\"plyr" + (i+1) + "-sum\" class=\"score\">" + 0 + "</div>";
     }
-    scoreGrid.innerHTML += "<input type=\"button\" id=\"next-round\" value=\"Next round\">";
-    let nextRound = document.querySelector("#next-round");
-    nextRound.addEventListener("click", initTurn);
-}
 
-function initTurn(){
-    turn++;
-    // add input for scores in the turn
+    
+    let scoresDisp = document.querySelectorAll(".score");
+    
+    // add input for scores in turn 1
+    let turn = 1;
     for(let i = 0; i < players.value; i++){
         scoreGrid.innerHTML += "<input type=\"number\" id=\"plyr-" + (i+1) + "-turn-" + turn + "\" class=\"turn-"+ turn + "\" value=\"" + 0 + "\">";
     }
-    updateNextRound();
-}
 
-function updateNextRound(){
+    // remove and add next round button
     let nextRound = document.querySelector("#next-round");
     nextRound.parentNode.removeChild(nextRound);
     scoreGrid.innerHTML += "<input type=\"button\" id=\"next-round\" value=\"Next round\">";
     nextRound = document.querySelector("#next-round");
-    nextRound.addEventListener("click", initTurn);
-}
-    /*
+    nextRound.addEventListener("click", ()=>alert("i was clicked"));
+
     // update sum score when changing score in turn
     let lastTurn = document.querySelectorAll(".turn-" + turn);
     lastTurn.forEach(function(turnScore){
         turnScore.addEventListener("input", function(){
             updateScore();
         })
-    })*/
+    })
+}
 
 function updateScore(){
     // pull turn scores to arrays and to score sum
     let turnScore = [];
     let scores=[];
-    let scoresDisp = document.querySelectorAll(".score");
     for (let i = 0; i<players.value;i++){
         turnScore[i]=[];
         scores[i] = 0;
         for (let j = 0; j<turn; j++){
             turnScore[i][j] = document.querySelector("#plyr-" + (i+1) +"-turn-" + (j+1));
-            scores[i] += turnScore[i][j].value;
-            debugger;
+            scores[i] += turnScore[i][j];
             scoresDisp[i].textContent = scores[i];
         }
     }
+    debugger;
 }
 
 function clearGame(){
@@ -121,4 +112,4 @@ for(let i=0; i<players;i++){
     }
     let plyrSum = document.querySelector("#plyr-"+(i+1)+"-sum");
     plyrSum.textContent = score[i];
-}*/
+}
