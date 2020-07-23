@@ -24,6 +24,9 @@ body{
     color: white;
 }
 
+form{
+    background: darkslategray;
+}
 form label{
     display: block;
     padding: 5px;
@@ -116,6 +119,7 @@ footer{
     position: fixed;
     bottom: 5px;
     width: 100%;
+    z-index: -1;
 }
 footer.hide{
     display: none;
