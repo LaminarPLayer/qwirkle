@@ -47,8 +47,6 @@ form .hide{
 }
 
 #scoreGrid div, #scoreGrid input{
-    /* border: none;
-    border-bottom: 2px solid red; */
     min-width: 50px;
     word-wrap: normal;
     text-align: center;
@@ -56,7 +54,19 @@ form .hide{
 }
 #scoreGrid .plyr{
     font-weight: bold;
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid yellowgreen;
+}
+#scoreGrid .score{
+    background: yellowgreen;
+    padding: 4px;
+    font-weight: bold;
+}
+#scoreGrid input[type="number"]{
+    border: 2px solid yellowgreen;
+}
+#scoreGrid input[type="button"]{
+    border: 2px solid yellowgreen;
+    border-radius: 25px;
 }
 
 
