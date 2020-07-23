@@ -1,6 +1,6 @@
 body{
     font-family: 'Rowdies', sans-serif;
-    background: midnightblue;
+    background: darkslategray;
     color: white;
 }
 
@@ -9,7 +9,7 @@ body{
     font-weight: 300;
 }
 #title span{
-    transition: all .5s;
+    transition: all 1s;
 }
 #title :nth-child(1){
     color: rgb(255, 255, 0);
@@ -36,10 +36,14 @@ form input{
     padding: 2px;
     margin: 5px auto;
     text-align: center;
-
+    border: 2px solid white;
+    color: white;
+    background: darkslategray;
+    border-radius: 5px;
 }
 form input[type="button"]{
     margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 form.hide{
@@ -74,7 +78,7 @@ form .hide{
 }
 #scoreGrid .score{
     background: white;
-    color: midnightblue;
+    color: darkslategray;
     padding: 4px;
     font-weight: bold;
     border-radius: 5px;
@@ -86,7 +90,7 @@ form .hide{
 #scoreGrid input[type="number"]{
     border: 2px solid white;
     color: white;
-    background: midnightblue;
+    background: darkslategray;
     border-radius: 5px;
 }
 #scoreGrid input[type="number"]:focus{
@@ -96,7 +100,7 @@ form .hide{
 #scoreGrid input[type="button"]{
     border: 2px solid white;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
 }
 
