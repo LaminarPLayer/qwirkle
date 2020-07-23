@@ -115,6 +115,7 @@ footer{
     font-family: monospace;
     position: fixed;
     bottom: 5px;
+    width: 100%;
 }
 footer a:link{
     color: white;
