@@ -1,6 +1,6 @@
 let root = document.querySelector(":root");
 
-// let players = 3;// = prompt("Podaj liczbę graczy");
+let titleSpans = document.querySelectorAll("#title span")
 
 let playersLabel = document.querySelector("label[for = \"players\"]");
 let players = document.querySelector("#players-input");
@@ -37,6 +37,11 @@ function updateForm(){
 }
 
 function initGame(){
+    // change title color
+    titleSpans.forEach(function(span){
+        span.classList.add("white");
+    })
+
     // show the score grid only
     root.style.setProperty("--plyr-number", players.value);
     scoreGrid.classList.remove("hide");
@@ -59,6 +64,8 @@ function initGame(){
 
 function initTurn(){
     turn++;
+    //  =======================
+    root.style.setProperty("--row-number", turn+3);
     // add input for scores in the turn
     for(let i = 0; i < players.value; i++){
         scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"number\" id=\"plyr-" + (i+1) + "-turn-" + turn + "\" class=\"turn-"+ turn + "\" placeholder=\"" + 0 + "\" min=\"0\">");
@@ -99,7 +106,14 @@ function updateScore(){
             turnScore[i][j] = Number(document.querySelector("#plyr-" + (i+1) +"-turn-" + (j+1)).value);
             scores[i] += turnScore[i][j];
         }
-    scoresDisp[i].textContent = scores[i];
+        if(scoresDisp[i].textContent != scores[i]){
+            scoresDisp[i].textContent = scores[i]; //tutaj ewentualnie dodać IF-a
+            scoresDisp[i].classList.toggle("changed");
+            setTimeout(function(){ 
+                scoresDisp[i].classList.toggle("changed");
+            }, 100);
+        }
+        
     }
 }
 
