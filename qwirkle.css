@@ -47,16 +47,19 @@ form .hide{
 }
 
 #scoreGrid div, #scoreGrid input{
-    border: 3px solid peru;
-    /* width: 100%; */
-    min-width: 75px;
+    /* border: none;
+    border-bottom: 2px solid red; */
+    min-width: 50px;
     word-wrap: normal;
     text-align: center;
     box-sizing: border-box;
 }
+#scoreGrid .plyr{
+    font-weight: bold;
+    border-bottom: 3px solid orange;
+}
+
 
 #next-round{
     grid-column: 1 / calc((var(--plyr-number)) + 1);
 }
-
-/* better font */

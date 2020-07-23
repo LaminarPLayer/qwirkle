@@ -51,7 +51,7 @@ function initGame(){
     for(let i = 0; i < players.value; i++){
         scoreGrid.innerHTML += "<div id=\"plyr" + (i+1) + "-sum\" class=\"score\">" + 0 + "</div>";
     }
-    scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Next round\">");
+    scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Dodaj kolejną rundę\">");
     let nextRound = document.querySelector("#next-round");
     nextRound.addEventListener("click", initTurn);
 }
@@ -60,7 +60,7 @@ function initTurn(){
     turn++;
     // add input for scores in the turn
     for(let i = 0; i < players.value; i++){
-        scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"number\" id=\"plyr-" + (i+1) + "-turn-" + turn + "\" class=\"turn-"+ turn + "\" value=\"" + 0 + "\">");
+        scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"number\" id=\"plyr-" + (i+1) + "-turn-" + turn + "\" class=\"turn-"+ turn + "\" placeholder=\"" + 0 + "\" min=\"0\">");
     }
     // update sum score when changing score in turn
     let lastTurn = document.querySelectorAll(".turn-" + turn);
@@ -74,7 +74,7 @@ function initTurn(){
 function updateNextRound(){
     let nextRound = document.querySelector("#next-round");
     nextRound.parentNode.removeChild(nextRound);
-    scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Next round\">");
+    scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Dodaj kolejną rundę!\">");
     nextRound = document.querySelector("#next-round");
     nextRound.addEventListener("click", initTurn);
 }
