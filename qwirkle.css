@@ -108,3 +108,23 @@ form .hide{
 #next-round{
     grid-column: 1 / calc((var(--plyr-number)) + 1);
 }
+
+footer{
+    text-align: center;
+    font-size: 10px;
+    font-family: monospace;
+    position: fixed;
+    bottom: 5px;
+}
+footer a:link{
+    color: white;
+}
+footer a:visited{
+    color: white;
+}
+footer a:hover{
+    color: white;
+}
+footer a:active{
+    color: white;
+}

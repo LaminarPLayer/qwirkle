@@ -120,26 +120,3 @@ function updateScore(){
 function clearGame(){
     scoreGrid.classList.add("hide");
 }
-
-
-
-/*-------------------------------------------------------
-
-let turnScore = [[5, 7],[12, 4],[3, 9]];
-let score = [];
-
-for(let i = 0; i<players.value; i++){
-    score[i] = turnScore[i].reduce((a,b) => a + b, 0)
-}
-
-let rounds = 2;
-
-for(let i=0; i<players;i++){
-    score[i]=0;
-    for(let j = 0; j < rounds; j++){
-        let turnScore = document.querySelector("#plyr-"+(i+1)+"-turn-"+(j+1));
-        score[i] = score[i] + Number(turnScore.textContent);
-    }
-    let plyrSum = document.querySelector("#plyr-"+(i+1)+"-sum");
-    plyrSum.textContent = score[i];
-}*/
