@@ -2,6 +2,7 @@ let root = document.querySelector(":root");
 
 // let players = 3;// = prompt("Podaj liczbę graczy");
 
+let playersLabel = document.querySelector("label[for = \"players\"]");
 let players = document.querySelector("#players-input");
 let playerNames = document.querySelectorAll("form .name");
 let playerNamesLabel = document.querySelectorAll("form .name-label");
@@ -22,6 +23,7 @@ startBtn.addEventListener("click", function(){
 
 
 function updateForm(){
+    playersLabel.textContent = "Liczba graczy: " + players.value;
     for(let i = 0; i < 4; i++){
         if (i >= players.value) {
             playerNames[i].classList.add("hide");
@@ -49,7 +51,7 @@ function initGame(){
     for(let i = 0; i < players.value; i++){
         scoreGrid.innerHTML += "<div id=\"plyr" + (i+1) + "-sum\" class=\"score\">" + 0 + "</div>";
     }
-    scoreGrid.innerHTML += "<input type=\"button\" id=\"next-round\" value=\"Next round\">";
+    scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Next round\">");
     let nextRound = document.querySelector("#next-round");
     nextRound.addEventListener("click", initTurn);
 }
@@ -58,7 +60,13 @@ function initTurn(){
     turn++;
     // add input for scores in the turn
     for(let i = 0; i < players.value; i++){
-        scoreGrid.innerHTML += "<input type=\"number\" id=\"plyr-" + (i+1) + "-turn-" + turn + "\" class=\"turn-"+ turn + "\" value=\"" + 0 + "\">";
+        scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"number\" id=\"plyr-" + (i+1) + "-turn-" + turn + "\" class=\"turn-"+ turn + "\" value=\"" + 0 + "\">");
+    }
+    // update sum score when changing score in turn
+    let lastTurn = document.querySelectorAll(".turn-" + turn);
+    lastTurn[0].addEventListener("input", updateScore);
+    for(let i = 0; i<players.value; i++){
+        lastTurn[i].addEventListener("change", updateScore);
     }
     updateNextRound();
 }
@@ -66,7 +74,7 @@ function initTurn(){
 function updateNextRound(){
     let nextRound = document.querySelector("#next-round");
     nextRound.parentNode.removeChild(nextRound);
-    scoreGrid.innerHTML += "<input type=\"button\" id=\"next-round\" value=\"Next round\">";
+    scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Next round\">");
     nextRound = document.querySelector("#next-round");
     nextRound.addEventListener("click", initTurn);
 }
@@ -88,11 +96,10 @@ function updateScore(){
         turnScore[i]=[];
         scores[i] = 0;
         for (let j = 0; j<turn; j++){
-            turnScore[i][j] = document.querySelector("#plyr-" + (i+1) +"-turn-" + (j+1));
-            scores[i] += turnScore[i][j].value;
-            debugger;
-            scoresDisp[i].textContent = scores[i];
+            turnScore[i][j] = Number(document.querySelector("#plyr-" + (i+1) +"-turn-" + (j+1)).value);
+            scores[i] += turnScore[i][j];
         }
+    scoresDisp[i].textContent = scores[i];
     }
 }
 
