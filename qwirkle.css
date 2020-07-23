@@ -117,6 +117,9 @@ footer{
     bottom: 5px;
     width: 100%;
 }
+footer.hide{
+    display: none;
+}
 footer a:link{
     color: white;
 }

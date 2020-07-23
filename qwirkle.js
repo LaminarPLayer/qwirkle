@@ -1,6 +1,7 @@
 let root = document.querySelector(":root");
 
-let titleSpans = document.querySelectorAll("#title span")
+let titleSpans = document.querySelectorAll("#title span");
+let footer = document.querySelector("footer");
 
 let playersLabel = document.querySelector("label[for = \"players\"]");
 let players = document.querySelector("#players-input");
@@ -41,6 +42,7 @@ function initGame(){
     titleSpans.forEach(function(span){
         span.classList.add("white");
     })
+    footer.classList.add("hide");
 
     // show the score grid only
     root.style.setProperty("--plyr-number", players.value);
