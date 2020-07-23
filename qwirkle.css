@@ -39,13 +39,11 @@ form .hide{
     justify-content: space-evenly;
     grid-template-columns: repeat(var(--plyr-number), 1fr);
     grid-template-rows: repeat(7, 1.5fr);
-    gap: 10px;
+    gap: 5px;
 }
-
 #scoreGrid.hide{
     display: none;
 }
-
 #scoreGrid div, #scoreGrid input{
     min-width: 50px;
     word-wrap: normal;
@@ -60,13 +58,19 @@ form .hide{
     background: yellowgreen;
     padding: 4px;
     font-weight: bold;
+    border-radius: 5px;
 }
 #scoreGrid input[type="number"]{
     border: 2px solid yellowgreen;
+    border-radius: 5px;
+}
+#scoreGrid input[type="number"]:focus{
+    background: rgb(153, 205, 50, .5);
 }
 #scoreGrid input[type="button"]{
-    border: 2px solid yellowgreen;
-    border-radius: 25px;
+    border: 2px solid rgba(153, 205, 50);
+    border-radius: 5px;
+    background: rgb(153, 205, 50, .5);
 }
 
 

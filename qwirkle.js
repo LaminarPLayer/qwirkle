@@ -54,6 +54,7 @@ function initGame(){
     scoreGrid.insertAdjacentHTML("beforeend", "<input type=\"button\" id=\"next-round\" value=\"Dodaj kolejną rundę\">");
     let nextRound = document.querySelector("#next-round");
     nextRound.addEventListener("click", initTurn);
+    initTurn();
 }
 
 function initTurn(){
@@ -64,7 +65,6 @@ function initTurn(){
     }
     // update sum score when changing score in turn
     let lastTurn = document.querySelectorAll(".turn-" + turn);
-    lastTurn[0].addEventListener("input", updateScore);
     for(let i = 0; i<players.value; i++){
         lastTurn[i].addEventListener("change", updateScore);
     }
